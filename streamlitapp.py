@@ -10,7 +10,7 @@ from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderServiceError
 from matplotlib.colors import to_rgba
 
-states = ["06", "12", "13", "17", "26", "36", "37", "39", "42", "48", "47"]  # FIPS codes
+states = ["12", "13", "17", "26", "36", "37", "39", "42",  "47"]  # "06" ,"48", FIPS codes
 
 @st.cache_data
 def load_tracts_and_pop():
