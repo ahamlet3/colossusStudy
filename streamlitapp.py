@@ -132,6 +132,8 @@ view_state = pdk.ViewState(latitude=user_lat, longitude=user_lon, zoom=12, pitch
 
 st.subheader("Personalized Pollution Impact Map")
 pdk.settings.mapbox_api_key = st.secrets["mapbox"]["mp_token"]
+
+st.write("Mapbox token loaded:", st.secrets.get("mapbox", {}).get("mp_token", "No token found"))
 # pollution_layer, marker_layer,
 st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/dark-v11", 
