@@ -127,13 +127,13 @@ colossus_lat, colossus_lon = 35.07, -90.06
 user_marker_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon": user_lon}], get_position='[lon, lat]', get_color='[0, 150, 255, 200]', get_radius=150, pickable=True)
 user_pollution_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon": user_lon}], get_position='[lon, lat]', get_radius=2000, get_color='[255, 51, 51, 60]', pickable=False)
 
+pdk.settings.mapbox_api_key = st.secrets["mapbox"]["mp_token"]
 view_state = pdk.ViewState(latitude=user_lat, longitude=user_lon, zoom=12, pitch=0)
 
 
 st.subheader("Personalized Pollution Impact Map")
-pdk.settings.mapbox_api_key = st.secrets["mapbox"]["mp_token"]
 
-st.write("Mapbox token loaded:", st.secrets.get("mapbox", {}).get("mp_token", "No token found"))
+
 # pollution_layer, marker_layer,
 st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/dark-v11", 
