@@ -174,9 +174,9 @@ st.pydeck_chart(pdk.Deck(
 
 st.markdown(f"""
 **🗺️ Zone Legend**  
-🔴 **2 km radius** – High risk exposure zone : Population : {buffers["2 km"].get('population')}  
-🟡 **5 km radius** – Moderate risk exposure zone  : Population : {buffers["5 km"].get('population')}  
-🟢 **10 km radius** – Low but measurable risk exposure zone : Population : {buffers["10 km"].get('population')}  
+🔴 **2 km radius** – High risk exposure zone : Population : {buffers["2 km"].get('population'):,.0f}  
+🟡 **5 km radius** – Moderate risk exposure zone : Population : {buffers["5 km"].get('population'):,.0f}  
+🟢 **10 km radius** – Lower but present risk exposure zone : Population : {buffers["10 km"].get('population'):,.0f}  
 """)
 with st.expander("📊 See More: Health Statistics About Gas Turbines"):
     st.markdown("""
