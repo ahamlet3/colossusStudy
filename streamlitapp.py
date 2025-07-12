@@ -128,7 +128,7 @@ user_marker_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon":
 user_pollution_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon": user_lon}], get_position='[lon, lat]', get_radius=2000, get_color='[255, 51, 51, 60]', pickable=False)
 
 view_state = pdk.ViewState(latitude=user_lat, longitude=user_lon, zoom=12, pitch=0)
-mapbox_token = st.secrets["mapbox"]["token"]
+mapbox_token = st.secrets["mapbox"]["mp_token"]
 
 st.subheader("Personalized Pollution Impact Map")
 # pollution_layer, marker_layer,
