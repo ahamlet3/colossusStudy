@@ -199,8 +199,10 @@ with st.expander("📊 See More: Health Statistics About Gas Turbines"):
 
 st.header("📣 Take Action Now")
 st.markdown("""
-Every child deserves clean air. If this issue moved you, take the next step. "Don't wait for permission to protect your community. Talk to neighbors. Attend city council meetings. Demand transparency. Your voice is the first step to change."
-""")
+Every child deserves clean air. If this issue moved you, take the next step. Don't wait for permission to protect your community. Talk to neighbors. Attend city council meetings. Demand transparency. Your voice is the first step to change.
+\n\n\n
+            "*“We are now faced with the fact that tomorrow is today. We are confronted with the fierce urgency of now.”* 
+            """)
 
 
 st.header("Please submit a post-app survey!")
