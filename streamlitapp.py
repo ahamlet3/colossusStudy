@@ -10,7 +10,7 @@ from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderServiceError
 from matplotlib.colors import to_rgba
 
-states = ["12", "13", "17", "26", "36", "37", "39", "42",  "47"]  # "06" ,"48", FIPS codes
+states = ["12", "13", "17", "26", "36", "37", "39", "42","47"]  # "06", "48",  FIPS codes
 
 @st.cache_data
 def load_tracts_and_pop():
@@ -128,19 +128,18 @@ user_marker_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon":
 user_pollution_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lon": user_lon}], get_position='[lon, lat]', get_radius=2000, get_color='[255, 51, 51, 60]', pickable=False)
 
 view_state = pdk.ViewState(latitude=user_lat, longitude=user_lon, zoom=12, pitch=0)
-mapbox_token = st.secrets["mapbox"]["mp_token"]
+
 
 st.subheader("Personalized Pollution Impact Map")
+pdk.settings.mapbox_api_key = st.secrets["mapbox"]["mp_token"]
 # pollution_layer, marker_layer,
 st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/dark-v11", 
     initial_view_state=view_state, 
     layers=[ user_pollution_layer, user_marker_layer, range_layers], 
     tooltip={"text": "Colossus Datacenter or Your ZIP\nProximity: ~2km"}
-    
-    
     ))
-# mapbox_api_key=mapbox_token
+
 st.markdown(f"""
 **🗺️ Zone Legend**  
 🔴 **2 km radius** – Highest exposure zone : Population : {buffers["2 km"].get('population')}  
@@ -174,16 +173,16 @@ salience = st.radio("Choose one:", [
 
 emotion_response = st.radio("How did this message make you feel?", ["😐 Not moved", "😕 Somewhat concerned", "😰 Worried", "😡 Angry", "😭 Emotional"])
 
-'''
+
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 google_secrets = st.secrets["google"]
 creds_dict = {key: google_secrets[key] for key in google_secrets}
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 sheet = client.open("Colossus Responses").sheet1
-'''
+
 if st.button("📩 Submit Response"):
-    # sheet.append_row([location_input, framing_mode, salience])
+    sheet.append_row([location_input, framing_mode, salience])
     st.success("Your response has been recorded. Thank you!")
 
 st.header("📣 Take Action Now")
