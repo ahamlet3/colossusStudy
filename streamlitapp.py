@@ -157,11 +157,11 @@ user_pollution_layer = pdk.Layer("ScatterplotLayer", data=[{"lat": user_lat, "lo
 view_state = pdk.ViewState(latitude=user_lat, longitude=user_lon, zoom=12, pitch=0)
 
 
-st.subheader("What If This was you right now?")
+st.subheader("What If this was you right now?")
 st.markdown("""
-            Imagine this in your backyard. The map below shows real-time pollution risk zones and associated population of zones from powerplants like Collosus.  
-            In the sidebar, Enter your address or city to see how a 'Collosus' could affect your city. 
-            This isn't hypothetical. It's happening now. 
+            Imagine Colossus in your backyard. The map below overlays the pollution risk zones of Colossus to any desired address. 
+            In the sidebar, Enter your address or city to see how a 'Colossus' could affect your city. \n
+            And remember... This isn't hypothetical. It's happening now. 
             """)
 # 
 # map_style="mapbox://styles/mapbox/dark-v11",  
