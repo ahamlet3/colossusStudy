@@ -173,7 +173,7 @@ st.pydeck_chart(pdk.Deck(
     ))
 
 st.markdown(f"""
-**🗺️ Zone Legend**  
+**🗺️ Zone Legend & Population Estimates**  
 🔴 **2 km radius** – High risk exposure zone : Population : {buffers["2 km"].get('population'):,.0f}  
 🟡 **5 km radius** – Moderate risk exposure zone : Population : {buffers["5 km"].get('population'):,.0f}  
 🟢 **10 km radius** – Lower but present risk exposure zone : Population : {buffers["10 km"].get('population'):,.0f}  
