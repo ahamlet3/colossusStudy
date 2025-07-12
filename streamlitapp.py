@@ -136,11 +136,11 @@ st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/dark-v11", 
     initial_view_state=view_state, 
     layers=[ user_pollution_layer, user_marker_layer, range_layers], 
-    tooltip={"text": "Colossus Datacenter or Your ZIP\nProximity: ~2km"},
-    mapbox_api_key=mapbox_token
+    tooltip={"text": "Colossus Datacenter or Your ZIP\nProximity: ~2km"}
+    
     
     ))
-
+# mapbox_api_key=mapbox_token
 st.markdown(f"""
 **🗺️ Zone Legend**  
 🔴 **2 km radius** – Highest exposure zone : Population : {buffers["2 km"].get('population')}  
@@ -174,16 +174,16 @@ salience = st.radio("Choose one:", [
 
 emotion_response = st.radio("How did this message make you feel?", ["😐 Not moved", "😕 Somewhat concerned", "😰 Worried", "😡 Angry", "😭 Emotional"])
 
-
+'''
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 google_secrets = st.secrets["google"]
 creds_dict = {key: google_secrets[key] for key in google_secrets}
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 sheet = client.open("Colossus Responses").sheet1
-
+'''
 if st.button("📩 Submit Response"):
-    sheet.append_row([location_input, framing_mode, salience])
+    # sheet.append_row([location_input, framing_mode, salience])
     st.success("Your response has been recorded. Thank you!")
 
 st.header("📣 Take Action Now")
